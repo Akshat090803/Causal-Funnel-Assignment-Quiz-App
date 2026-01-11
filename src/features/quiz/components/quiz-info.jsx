@@ -13,7 +13,7 @@ const QuizInfo = ({handleQuizStart}) => {
     <div className=" h-full flex items-center justify-center">
       <Card className="max-w-2xl w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Quiz Info</CardTitle>
+          <CardTitle className="text-lg sm:text-xl lg:text-2xl">Quiz Info</CardTitle>
           <CardDescription className={"-mb-3"}>
             You are about to begin a timed quiz designed to assess your general
             knowledge and accuracy.
@@ -27,7 +27,7 @@ const QuizInfo = ({handleQuizStart}) => {
           </ul>
 
           <div className="mt-4 space-y-2">
-            <h2 className="text-lg font-semibold">Quiz Rules</h2>
+            <h2 className="text-base lg:text-lg font-semibold">Quiz Rules</h2>
             <ul className="md:text-base text-sm space-y-0.5">
               <li>🔁 Navigate freely between questions</li>
               <li>⏰ Auto-submit when time ends</li>

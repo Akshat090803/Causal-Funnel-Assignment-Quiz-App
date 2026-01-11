@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <WavyBackground containerClassName={"h-full"}>
         <div className="max-w-5xl md:max-w-4xl flex flex-col gap-y-6">
-          <p className="text-3xl md:text-4xl lg:text-6xl  font-bold inter-var text-center  bg-clip-text text-transparent bg-linear-to-b from-foreground from-60% to-[#999]">
+          <p className="text-3xl md:text-4xl lg:text-6xl  font-extrabold inter-var text-center  bg-clip-text text-transparent bg-linear-to-b from-foreground from-60% to-[#999]">
             Ready to Take the Quiz?
           </p>
           <p className="text-base md:text-lg  text-white font-normal inter-var text-center">

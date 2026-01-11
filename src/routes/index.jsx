@@ -1,3 +1,4 @@
+import NotFound from "@/components/custom/404-not-found";
 import CustomLoader from "@/components/custom/loader";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
             <ReportPage/>
           </LazyWrapper>
         )
-      }
+      },
+       {
+      path:"*",
+      element:<NotFound/>
+    }
      ]
 
   }

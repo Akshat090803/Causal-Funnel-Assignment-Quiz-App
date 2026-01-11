@@ -13,6 +13,7 @@ import { QuizContext } from "@/store/context-store";
 import { btnColors, legendsData } from "@/lib/utils";
 import Legend from "@/components/custom/legend";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Quiz = ({ quizData, timeInfo, pause,reset }) => {
   const navigate = useNavigate();
@@ -57,18 +58,28 @@ const Quiz = ({ quizData, timeInfo, pause,reset }) => {
     ).padStart(2, "0")} sec`;
     handleQuizEvaluation(timeTaken);
     reset()
+    toast.success('Score Evaluated Successfully')
     navigate("/quiz/result");
+
   };
 
   useEffect(() => {
     handleQuesVisit(currQuesInd);
   }, [currQuesInd]);
+
+  useEffect(()=>{ 
+    if(timeInfo && timeInfo?.time ===0){
+      toast.warning("Times Up! Quiz auto submitted")
+      handleSubmit();
+    }
+
+  },[timeInfo,timeInfo?.time])
   return (
-    <div className=" h-full flex flex-row gap-4">
+    <div className=" h-full flex lg:flex-row flex-col gap-4">
       {/* timer and ques Navigation */}
-      <div className="flex flex-col gap-8 w-[25%] border-r pr-4 ">
+      <div className="flex flex-col gap-8 lg:w-[25%]  lg:border-r-2 max-lg:border-b-2 pr-4 ">
         <Timer minutes={timeInfo.minutes} seconds={timeInfo.seconds} />
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid lg:grid-cols-3 grid-cols-5 lg:gap-2 gap-1">
           {quizData?.map((_, ind) => (
             <QuesNavBlock
               value={ind + 1}
@@ -79,7 +90,7 @@ const Quiz = ({ quizData, timeInfo, pause,reset }) => {
           ))}
         </div>
 
-        <div className="space-y-3">
+        <div className="gap-3 justify-between flex flex-wrap flex-row lg:flex-col">
           {legendsData.map((legend, ind) => (
             <Legend
               key={ind}
@@ -102,14 +113,14 @@ const Quiz = ({ quizData, timeInfo, pause,reset }) => {
               Question {currQuesInd + 1} of {quizData.length}
             </CardTitle>
           </CardHeader>
-          <CardContent className={"space-y-5"}>
-            <p className="text-xl font-medium">{currQues?.question}</p>
+          <CardContent className={"lg:space-y-5 space-y-3 sm:space-y-4"}>
+            <p className="text-base sm:text-lg lg:text-xl font-medium">{currQues?.question}</p>
 
             <div className="space-y-3">
               {currQues.allOptions.map((opt, ind) => {
                 const isSelected = userAnswers[currQuesInd] === opt;
                 return (
-                  <div key={`option-${ind}`} className="space-x-2 text-lg">
+                  <div key={`option-${ind}`} className="space-x-2 text-sm sm:text-base lg:text-lg">
                     <input
                       type="radio"
                       id={`option-${ind}`}
@@ -129,23 +140,23 @@ const Quiz = ({ quizData, timeInfo, pause,reset }) => {
               <Button
                 disabled={currQuesInd === 0}
                 onClick={() => handlePagination("prev")}
-                className={"cursor-pointer max-w-3xs w-full"}
+                className={"cursor-pointer max-w-3xs w-28 lg:w-full"}
               >
-                Previous Question
+                Previous <span className="max-lg:hidden">Question</span>
               </Button>
               {currQuesInd === quizData.length - 1 ? (
                 <Button
                   onClick={() => handleSubmit()}
-                  className={"cursor-pointer max-w-3xs w-full"}
+                  className={"cursor-pointer max-w-3xs w-28 lg:w-full"}
                 >
                   Submit Quiz
                 </Button>
               ) : (
                 <Button
                   onClick={() => handlePagination("next")}
-                  className={"cursor-pointer max-w-3xs w-full"}
+                  className={"cursor-pointer max-w-3xs w-28 lg:w-full"}
                 >
-                  Next Question
+                  Next <span className="max-lg:hidden">Question</span>
                 </Button>
               )}
             </div>

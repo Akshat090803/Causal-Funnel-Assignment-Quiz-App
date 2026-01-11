@@ -14,14 +14,14 @@ const ReportPage = ()=>{
     return <NoQuizResult/>
   }
   return <div className="flex-1">
-           <div className="h-full border-2 shadow-sm flex flex-col gap-y-10 py-5 px-10">
+           <div className="h-full border-2 shadow-sm flex flex-col gap-y-8 md:gap-y-10 py-5 px-6 md:px-8 lg:px-10">
 
-            <h1 className="text-2xl font-bold  text-center"><span className="bg-clip-text text-transparent bg-linear-to-b from-foreground from-60% to-[#999]">Quiz Report</span> 🏆</h1>
+            <h1 className="text-xl sm:text-[22px] lg:text-2xl font-bold  text-center"><span className="bg-clip-text text-transparent bg-linear-to-b from-foreground from-60% to-[#999]">Quiz Report</span> 🏆</h1>
 
             {/* Summary */}
             <div>
-              <h2 className="text-xl font-bold">🧾 Summary</h2>
-              <div className="mt-4 border grid grid-cols-3  gap-2 p-4 place-items-center">
+              <h2 className="text-base sm:text-lg lg:text-xl  font-bold">🧾 Summary</h2>
+              <div className="mt-4 border grid md:grid-cols-2 lg:grid-cols-3  gap-2 p-4 md:place-items-center">
                 <InfoCard title={"Time Taken"} value={quizEvaluation?.timetaken}/>
                 <InfoCard title={"Total Questions"} value={quizEvaluation?.totalQuestions}/>
                 <InfoCard title={"Attempted"} value={quizEvaluation?.attempted}/>
@@ -34,10 +34,10 @@ const ReportPage = ()=>{
 
             {/* Score */}
              <div>
-              <h2 className="text-xl font-bold">📈 Score   </h2>
+              <h2 className="text-base sm:text-lg lg:text-xl font-bold">📈 Score   </h2>
               <div className="mt-4 border flex flex-col gap-y-2 p-4">
                   
-                    <h3 className="text-xl font-semibold tracking-wider text-purple-500">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-semibold tracking-wider text-purple-500">
                       {quizEvaluation?.score || 0}
                       <span className="mx-2 text-white">/</span>
                       {quizEvaluation?.totalQuestions || 15}
@@ -48,7 +48,7 @@ const ReportPage = ()=>{
 
             {/* Questions Review */}
              <div>
-              <h2 className="text-xl font-bold">🧠 Question Review</h2>
+              <h2 className="text-base sm:text-lg lg:text-xl font-bold">🧠 Question Review</h2>
               <div className="mt-4 border flex flex-col gap-y-2 p-4">
                   
                     <QuestionCard userEvaluation={quizEvaluation.userEvaluation || []}/>

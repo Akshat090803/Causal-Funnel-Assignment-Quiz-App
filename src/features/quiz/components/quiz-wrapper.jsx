@@ -7,7 +7,7 @@ import CustomLoader from "@/components/custom/loader";
 
 const QuizWrapper = () => {
   const { loading, quesData, fetchQuestions } = useContext(QuizContext);
-  const {start,pause,reset,time,minutes,seconds} = useTimerCountDown({initialTime:1800 , storageKey:"quizTimer"});
+  const {start,pause,reset,time,minutes,seconds} = useTimerCountDown({initialTime:1800});
   const timeInfo = {
     minutes,seconds,time
   }
