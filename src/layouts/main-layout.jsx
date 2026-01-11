@@ -7,7 +7,7 @@ const MainLayout = () => {
     <QuizContextProvider>
       <div className="bg-black min-h-screen flex flex-col">
         <Header />
-        <div className="container mx-auto p-10  flex-1 flex justify-center">
+        <div className="container mx-auto p-10 pt-20 pb-5  flex-1 flex justify-center">
           <Outlet />
         </div>
       </div>

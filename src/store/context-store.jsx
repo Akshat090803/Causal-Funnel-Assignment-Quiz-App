@@ -83,9 +83,7 @@ const QuizContextProvider = ({ children }) => {
       setQuesData(reqData);
     } catch (error) {
       console.log(error);
-      if(error?.status!=429){
-        toast.error(error?.message);
-      }
+      
       
     } finally {
       setLoading(false);

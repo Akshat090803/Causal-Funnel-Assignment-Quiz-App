@@ -20,7 +20,7 @@ const Header = () => {
 
 
   return (
-    <header className="min-h-12 container mx-auto z-40 py-2 flex justify-between items-center px-10 shadow-sm border-b-2">
+    <header className="min-h-12 fixed top-0 backdrop-blur-sm bg-black/15 container mx-auto z-40 py-2 flex justify-between items-center px-10 shadow-sm border-b-2">
       <h1 onClick={()=>navigate('/')} className="text-xl sm:text-[22px] lg:text-2xl font-bold bg-clip-text text-transparent bg-linear-to-b from-foreground from-60% to-[#999] cursor-pointer">Quizio</h1>
       <div className="relative w-55 h-5 overflow-hidden text-right">
         {taglineWords.map((tagline, index) => {
