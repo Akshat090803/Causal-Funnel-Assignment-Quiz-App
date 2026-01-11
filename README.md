@@ -21,7 +21,7 @@ Follow these steps to get the project running locally:
 ### Steps
 1.  **Clone the repository**:
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/Akshat090803/Causal-Funnel-Assignment-Quiz-App.git
     cd causal-funnel-assignment-quiz-app
     ```
 2.  **Install dependencies**:
