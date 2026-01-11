@@ -2,7 +2,7 @@ import { QuizContext } from "@/store/context-store"
 import { useContext } from "react"
 import InfoCard from "../components/info-card";
 import QuestionCard from "../components/question-card";
-import NoQuizResult from "../components/no-quiz";
+
 
 const ReportPage = ()=>{
 
@@ -10,9 +10,7 @@ const ReportPage = ()=>{
   console.log("Quiz Evaluation:",quizEvaluation)
   const accuracy = (quizEvaluation?.score /(quizEvaluation?.totalQuestions || 15))*100;
 
-  if(!quizEvaluation){
-    return <NoQuizResult/>
-  }
+
   return <div className="flex-1">
            <div className="h-full border-2 shadow-sm flex flex-col gap-y-8 md:gap-y-10 py-5 px-6 md:px-8 lg:px-10">
 

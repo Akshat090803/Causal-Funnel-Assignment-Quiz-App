@@ -122,7 +122,9 @@
 }
 
 
-
+body{
+  background-color: black;
+}
 
 /* From Uiverse.io by JkHuger */ 
 @keyframes loader_5191 {

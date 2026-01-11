@@ -1,5 +1,7 @@
 import NotFound from "@/components/custom/404-not-found";
+import EmailGuard from "@/components/custom/email-guard";
 import CustomLoader from "@/components/custom/loader";
+import QuizResultGuard from "@/components/custom/quiz-result-guard";
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 const MainLayout = lazy(()=>import("@/layouts/main-layout"))
@@ -35,7 +37,9 @@ const router = createBrowserRouter([
         path:'/quiz',
         element:(
           <LazyWrapper>
-            <QuizPage/>
+            <EmailGuard>
+              <QuizPage/>
+            </EmailGuard>
           </LazyWrapper>
         )
       },
@@ -43,7 +47,9 @@ const router = createBrowserRouter([
         path:'/quiz/result',
         element:(
           <LazyWrapper>
-            <ReportPage/>
+            <QuizResultGuard>
+              <ReportPage/>
+            </QuizResultGuard>
           </LazyWrapper>
         )
       },

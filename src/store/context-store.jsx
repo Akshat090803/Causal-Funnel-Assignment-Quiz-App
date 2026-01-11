@@ -79,11 +79,14 @@ const QuizContextProvider = ({ children }) => {
             };
           })
         : [];
-      console.log(reqData);
+      
       setQuesData(reqData);
     } catch (error) {
       console.log(error);
-      toast.error(error?.message);
+      if(error?.status!=429){
+        toast.error(error?.message);
+      }
+      
     } finally {
       setLoading(false);
     }
